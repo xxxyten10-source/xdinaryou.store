@@ -44,35 +44,24 @@
     }
 
     .product-list-row {
-  display: flex;
-  gap: 18px;
-  padding: 24px 24px;
-  overflow-x: auto;
-  box-sizing: border-box;
-  flex-wrap: nowrap;
-  max-width: 1200px;
-  margin: 0 auto;
-
-  /* Hilangkan scrollbar */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge lama */
-}
-
-.product-list-row::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge baru */
-}
+      display: flex;
+      gap: 18px;
+      padding: 24px 18px;
+      overflow-x: auto;
+      box-sizing: border-box;
+    }
     .product-card {
-    background: #fff;
-    border-radius: 6px;
-    box-shadow: 0 2px 9px rgba(0,0,0,0.08);
-    width: 220px;
-    min-width: 220px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #eee;
-  }
-
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.08);
+      width: 220px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
     .product-img {
       width: 100%;
       height: 150px;
@@ -154,7 +143,6 @@
     <div class="nav-links">
       <button class="nav-link" onclick="showSection('home')"><a href="xdinaryou-store-unified.html">Home</a></button>
       <button class="nav-link" onclick="showSection('about us')"><a href="AboutUs.html">About Us</a></button>
-      <button class="nav-link" onclick="showSection('contact')"><a href="kontak.html">Contact</a></button>
       <button class="nav-link" onclick="showSection('affiliate')"><a href="Affiliate.html">Affiliate</a></button>
     <div class="search-box">
       <select id="categoryFilter" onchange="filterCategory()">
@@ -173,7 +161,7 @@
 <!-- Produk Affiliate -->
 <div class="product-list-row">
   <!-- Produk 1 -->
-  <a href="https://collshp.com/xdinaryou?share_channel_code=1" class="product-card" data-category="baju">
+  <a href="https://s.shopee.co.id/8UyCQLBWuu" class="product-card" data-category="baju">
     <img src="img/vest.jpg" class="product-img" alt="Vest Distro Premium">
     <div class="product-info">
       <div class="product-badge-row">
@@ -1603,6 +1591,7 @@
       </div>
     </div>
   </a>
+
   <!-- Produk 3 -->
   <a href="produk-SeblakInstan.html?id=Seblak" class="product-card" data-category="makanan">
     <img src="img/SeblakInstan.jpg" class="product-img" alt="Seblak Instan">
@@ -1679,30 +1668,78 @@
     });
   }
 </script>
-<meta charset="UTF-8" />
-  <title>Footer Mentok Bawah</title>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supported By</title>
   <style>
-    /* Reset */
-    * {
-      box-sizing: border-box;
-    }
-    html, body {
-      height: 100%;
+    body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
       background: #fdfae9;
+      color: #164fa3;
     }
-    footer {
-      background: #b3e5fc;
-      color: #0d47a1;
+
+    /* Footer Supported by */
+    .supported-by {
+      background-color: #e3f2fd;
+      padding: 20px 0;
       text-align: center;
+      margin-top: 60px;
+    }
+
+    .supported-by-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #1e88e5;
+    }
+
+    .supported-logos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .supported-logos img {
+      height: 50px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .supported-logos img:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 600px) {
+      .supported-logos img {
+        height: 40px;
+      }
     }
   </style>
 </head>
 <body>
-    <footer>
-    <p>&copy; 2023 XDINARYOU.STORE. All rights reserved.</p>
+
+  <!-- Bagian utama konten bisa di sini -->
+
+  <!-- Supported by Section -->
+  <footer class="supported-by">
+    <div class="supported-by-title">Kunjungi Kami</div>
+    <div class="supported-logos">
+      <img src="img/3D Modular Origami - Dasar (Banget).jpeg" alt="Tokopedia" />
+      <img src="img/icon shopee.jpeg" alt="Shopee" />
+      <img src="img/Lazada Laz Square App Icon PNG.jpeg" alt="Lazada" />
+      <img src="img/tiktok.png" alt="TikTok Shop" />
+      <img src="img/Instagram-icon-Logo-2016-present.png" alt="Instagram" />
+      <img src="img/wab.png" alt="Whatsapp" />
+    </div>
   </footer>
+
+</body>
+</html>
 </body>
 </html>

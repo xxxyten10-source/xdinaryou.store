@@ -6,160 +6,366 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Reset */
-    * {
-      box-sizing: border-box;
+    :root {
+      --primary: #0288d1;
+      --primary-dark: #0277bd;
+      --accent: #0d47a1;
+      --accent-hover: #1565c0;
+      --bg-light: #fffbea;
+      --bg-navbar: #b3e5fc;
+      --bg-footer: #0288d1;
+      --bg-footer-text: #fff;
+      --danger: #d32f2f;
     }
-    html, body {
-      height: 100%;
+    body {
+      background-color: var(--bg-light);
+      color: #222;
       margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      display: flex;
-      flex-direction: column;
     }
-
-    /* Navbar */
     .navbar {
-      background-color: #b3e5fc;
-      padding: 18px;
+      background-color: var(--bg-navbar);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      padding: 25px 50px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
     }
     .nav-links {
       display: flex;
-      gap: 12px;
       align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    .nav-link {
-      color: #0d47a1;
-      font-weight: bold;
+    .nav-link, .cart-link {
+      color: var(--accent);
+      font-weight: 500;
+      padding: 4px 8px;
+      position: relative;
       text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      transform-origin: center center;
+      display: inline-flex;
+      align-items: center;
+      font-size: 1rem;
+      background: none;
+      border: none;
     }
-    .nav-link:hover {
-      background: #0288d1;
+    .nav-link:hover,
+    .cart-link:hover,
+    .nav-link:focus,
+    .cart-link:focus,
+    .nav-link:active,
+    .cart-link:active {
+      color: var(--accent-hover);
+      transform: scale(1.05);
+      outline: none;
+    }
+    .nav-link::after,
+    .cart-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .cart-link:hover::after,
+    .nav-link:focus::after,
+    .cart-link:focus::after,
+    .nav-link:active::after,
+    .cart-link:active::after {
+      width: 100%;
+    }
+    .search-box {
+      position: relative;
+      width: 180px;
+      min-width: 100px;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid var(--primary);
+      border-radius: 20px;
+      font-size: 14px;
+      background: #fff;
+      color: #222;
+      transition: border-color 0.3s ease;
+    }
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 5px var(--primary);
+    }
+    #cart-count {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background-color: var(--danger);
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 0 5px;
+      border-radius: 9999px;
+      line-height: 1;
+      user-select: none;
+    }
+    .btn {
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      border: none;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .btn-download {
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+    .btn-download:hover {
+      background-color: var(--primary);
       color: white;
     }
-    .search-box select {
-      padding: 8px;
-      border-radius: 6px;
-      border: 1px solid #0288d1;
-      font-size: 14px;
+    .btn-login, .btn-signup {
+      background-color: var(--primary);
+      color: white;
+      border: none;
     }
-
-    /* Content area supaya footer tetap di bawah */
-    main {
-      flex: 1 0 auto; /* Isi halaman yang fleksibel */
-      padding: 24px 18px;
-      box-sizing: border-box;
-      background: #f9f9f9;
+    .btn-login:hover, .btn-signup:hover {
+      background-color: var(--primary-dark);
     }
-
-    /* Produk */
-    .product-list-row {
+    .parallax {
+      background-image: url('https://source.unsplash.com/1600x900/?technology,code');
+      min-height: 340px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
       display: flex;
-      gap: 18px;
-      overflow-x: auto;
-      box-sizing: border-box;
-      padding-bottom: 16px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .parallax .overlay {
+      background: rgba(0,0,0,0.5);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      max-width: 600px;
+      margin: 0 1rem;
     }
     .product-card {
-      background: #fff;
-      border-radius: 6px;
-      box-shadow: 0 2px 9px rgba(0,0,0,0.08);
-      width: 220px;
-      min-width: 220px;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 8px;
-      overflow: hidden;
-      border: 1px solid #eee;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      background: white;
+      transition: box-shadow 0.2s;
+      margin-bottom: 0.5rem;
     }
-    .product-img {
+    .product-card:hover {
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    .btn-add {
+      background-color: var(--primary);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 9999px;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s;
+    }
+    .btn-add:hover {
+      background-color: var(--primary-dark);
+    }
+    table {
       width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-    .product-badge-row {
-      display: flex;
-      gap: 6px;
-      margin-top: 8px;
-      margin-bottom: 2px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .badge {
-      font-size: 0.83em;
-      font-weight: bold;
-      border-radius: 3px;
-      padding: 3px 7px;
-      color: #fff;
-    }
-    .badge.star { background: #ff5c32; }
-    .badge.promo { background: #ffd600; color: #d35400; }
-    .product-title {
-      font-size: 1em;
-      font-weight: bold;
-      margin: 6px 10px 2px 10px;
-      color: #222;
-      min-height: 40px;
-      max-height: 40px;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
       overflow: hidden;
     }
-    .product-extra-row {
-      display: flex;
-      gap: 5px;
-      margin: 4px 10px 0 10px;
-      flex-wrap: wrap;
-      font-size: 0.95em;
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
     }
-    .komisi-xtra {
-      border: 2px solid #2541b2;
-      color: #2541b2;
-      border-radius: 3px;
-      padding: 2px 6px;
-      font-size: 0.91em;
-      font-weight: bold;
-      background: #fff;
+    th {
+      background-color: var(--bg-navbar);
     }
-    .garansi {
-      background: #eee;
-      color: #e9003a;
-      border-radius: 3px;
-      padding: 2px 6px;
-      font-size: 0.91em;
-      font-weight: bold;
+    .btn-remove {
+      background: var(--danger);
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 9999px;
+      cursor: pointer;
     }
-    .product-price-row {
-      display: flex;
-      justify-content: space-between;
+    .btn-remove:hover {
+      background: #b71c1c;
+    }
+    .btn-clear {
+      margin-top: 12px;
+      background: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-clear:hover {
+      background: var(--primary-dark);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
       align-items: center;
-      font-size: 13px;
+    }
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.13);
+    }
+    .close-btn {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      font-size: 24px;
       font-weight: bold;
-      margin: 8px 10px;
+      color: #333;
+      cursor: pointer;
     }
-    .product-price {
-      color: #e9003a;
-      font-size: 1em;
+    .modal-content h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: var(--primary);
     }
-    .product-sold {
-      font-size: 1em;
-      color: #888;
+    .modal-content label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .modal-content input[type="text"],
+    .modal-content input[type="email"],
+    .modal-content input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid var(--primary);
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .modal-content button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 999px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .modal-content button:hover {
+      background-color: var(--primary-dark);
+    }
+    footer {
+      background: var(--bg-footer);
+      color: var(--bg-footer-text);
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px 10px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        width: 100%;
+        gap: 0.7rem;
+        margin-top: 8px;
+        flex-wrap: wrap;
+      }
+      .nav-link, .cart-link {
+        font-size: 0.97rem;
+        padding: 5px 8px;
+      }
+      .search-box {
+        width: 100%;
+        min-width: 90px;
+        margin-top: 8px;
+      }
+      .parallax {
+        min-height: 180px;
+      }
+      .parallax .overlay {
+        padding: 1.2rem;
+      }
+      .btn, .btn-download, .btn-login, .btn-signup {
+        padding: 10px 13px;
+        font-size: 15px;
+      }
+      .product-card {
+        padding: 12px;
+      }
+      section.p-10, section.p-8 {
+        padding: 1.5rem 0.7rem;
+      }
+      .max-w-4xl, .max-w-lg, .max-w-3xl {
+        max-width: 100%;
+      }
+      table th, table td {
+        padding: 9px;
+      }
+    }
+    /* Custom for affiliate images */
+    .aff-img {
+      width: 18%;
+      min-width: 80px;
+      max-width: 120px;
+      margin: 5px;
+      border-radius: 16px;
+      display: inline-block;
+    }
+    .aff-img-large {
+      width: 20%;
+      min-width: 100px;
+      max-width: 160px;
+      margin: 5px;
+      border-radius: 16px;
+      display: inline-block;
     }
   </style>
+</head>
+<body>
   <!-- Navbar -->
   <nav class="navbar">
     <a class="nav-link text-lg font-bold" href="#home" onclick="showSection('home')">XDINARYOU.STORE</a>
     <div class="nav-links">
       <button class="nav-link" onclick="showSection('home')">Home</button>
       <button class="nav-link" onclick="showSection('about us')"><a href="AboutUs.html">About Us</a></button>
-      <button class="nav-link" onclick="showSection('contact')"><a href="kontak.html">Contact</a></button>
       <button class="nav-link" onclick="showSection('affiliate')"><a href="Affiliate.html">Affiliate</a></button>
     </select> 
     </div>
@@ -383,7 +589,7 @@
 <body>
   <div class="nav-links">
     <div class="product-card">
-      <a href="https://collshp.com/xdinaryou?share_channel_code=1">
+      <a href="detail-seblak.html">
         <img src="img/SeblakInstan.jpg" class="aff-img" alt="Seblak">
       </a>
   <div class="product-name-layer">Seblak Instan</div>
@@ -2230,33 +2436,127 @@
   </div>
 </body>
 </html>
+<body>
+  <div style="height: 10px; background: none;"></div>
+  <!-- Rekomendasi bar -->
+  <div class="rekomendasi-bar">
+    <div class="rekomendasi-title">Follow Us</div>
+  </div>
+<div>
+  </body>
+</html>
+  <meta charset="UTF-8">
+  <title>Follow Us</title>
+  <style>
+    body {
+      background: #fdfae9;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .icon-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0; /* Jarak antar ikon */
+      margin-top: 0;
+    }
+    .icon-bar a img:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 600px) {
+      .icon-bar {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Bar Ikon Sosial Media -->
+  <div class="icon-bar">
+    <a href="https://www.instagram.com/xdinaryou/" target="_blank">
+      <img src="img/Instagram-icon-Logo-2016-present.png" alt="Instagram" width="100" height="100">
+    </a>
+    <a href="https://wa.me/6281321292383" target="_blank">
+      <img src="img/wab.png" alt="Instagram" width="55" height="55">
+    </a>
+    <a href="https://www.tiktok.com/@xdinaryou" target="_blank">
+      <img src="img/tiktok-logo-tikok-icon-transparent-tikok-app-logo-free-png.webp" alt="TikTok" width="95" height="95">
+    </a>
+    <a href="" target="_blank">
+      <img src="img/3D Modular Origami - Dasar (Banget).jpeg" alt="Tokopedia" width="95" height="95">
+      </a>
+      <a href="http://shopee.co.id/dinar_dierly16" target="_blank">
+      <img src="img/icon shopee.jpeg" alt="Shopee" width="95" height="95">
+      </a>
+      <a href="" target="_blank">
+      <img src="img/Lazada Laz Square App Icon PNG.jpeg" alt="Lazada" width="95" height="95">
+      </a>
+  </div>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Contoh Footer Tidak Mengambang</title>
-<style>
-  /* Main content agar mengisi ruang dan footer mentok bawah */
-    main {
-      flex: 1 0 fixed; /* Mengisi sisa ruang, mendorong footer ke bawah */
-      padding: 24px 18px;
+  <meta charset="UTF-8">
+  <title>Footer xdinaryou.store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f8f8f8;
     }
-    /* Footer agar full width dan selalu di bawah */
-    footer {
-      background: #b3e5fc;
-      color: #0d47a1;
-      text-align: center;
-      padding: 0px 0;
-      width: 100%; /* Full width */
+    .footer {
+      background: #fff;
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
-</style>
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+      margin: 10px;
+    }
+    .footer-column h3 {
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-column ul li {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .footer-column ul li a {
+      text-decoration: none;
+      color: #555;
+    }
+    .footer-column ul li a:hover {
+      text-decoration: underline;
+    }
+    .footer-icons img, .footer-payments img, .footer-shipping img {
+      height: 30px;
+      margin: 5px;
+    }
+    .security img {
+      height: 80px;
+      margin-top: 10px;
+    }
+    .download-app img {
+      height: 30px;
+      margin: 5px;
+    }
+    .qr-code {
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
-<body>
-<!-- Footer -->
-<footer>
-  &copy; 2023 XDINARYOU.STORE. All rights reserved.
-</footer>
 
-</body>
-</html>
+
