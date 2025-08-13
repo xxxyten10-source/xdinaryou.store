@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <title>XDINARYOU.STORE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #f9f9f9;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      background-color: #b3e5fc;
+      padding: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .nav-link {
+      color: #0d47a1;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+    .nav-link:hover {
+      background: #0288d1;
+      color: white;
+    }
+    .search-box select {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #0288d1;
+      font-size: 14px;
+    }
+
+    .product-list-row {
+      display: flex;
+      gap: 18px;
+      padding: 24px 18px;
+      overflow-x: auto;
+      box-sizing: border-box;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.08);
+      width: 220px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .product-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product-badge-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 2px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 0.83em;
+      font-weight: bold;
+      border-radius: 3px;
+      padding: 3px 7px;
+      color: #fff;
+    }
+    .badge.star { background: #ff5c32; }
+    .badge.promo { background: #ffd600; color: #d35400; }
+    .product-title {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 6px 10px 2px 10px;
+      color: #222;
+      min-height: 40px;
+      max-height: 40px;
+      overflow: hidden;
+    }
+    .product-extra-row {
+      display: flex;
+      gap: 5px;
+      margin: 4px 10px 0 10px;
+      flex-wrap: wrap;
+      font-size: 0.95em;
+    }
+    .komisi-xtra {
+      border: 2px solid #2541b2;
+      color: #2541b2;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      background: #fff;
+    }
+    .garansi {
+      background: #eee;
+      color: #e9003a;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+    }
+    .product-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: bold;
+      margin: 8px 10px;
+    }
+    .product-price {
+      color: #e9003a;
+      font-size: 1em;
+    }
+    .product-sold {
+      font-size: 1em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a class="nav-link text-lg font-bold" href="#home" onclick="showSection('home')">XDINARYOU.STORE</a>
+    <div class="nav-links">
+      <button class="nav-link" onclick="showSection('home')"><a href="xdinaryou-store-unified.html">Home</a></button>
+      <button class="nav-link" onclick="showSection('about us')"><a href="AboutUs.html">About Us</a></button>
+      <button class="nav-link" onclick="showSection('contact')"><a href="kontak.html">Contact</a></button>
+      <button class="nav-link" onclick="showSection('affiliate')"><a href="Affiliate.html">Affiliate</a></button>
+    </select> 
+    </div>
+  </nav>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>XDINARYOU STORE</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+    /* Container foto + deskripsi */
+    .about-container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: white;
+      display: flex;
+      align-items: center; /* Rata tengah vertikal */
+      gap: 20px;
+    }
+
+    .about-container img {
+      width: 250px;
+      height: auto;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .about-text {
+      flex: 1;
+      color: #555;
+      text-align: justify;
+    }
+
+    /* Container visi, misi, jastip */
+    .info-container {
+      max-width: 1200px;
+      margin: 20px auto 40px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: white;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 250px;
+      background: #f5faff;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .column h3,
+    .column h4,
+    .column h5 {
+      color: #0288d1;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .column p {
+      color: #555;
+      text-align: justify;
+      margin-top: 10px;
+    }
+
+    /* Responsif */
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+      .about-text {
+        text-align: center;
+      }
+      .info-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Tentang toko -->
+  <div class="about-container">
+    <img
+      src="img/Black White Minimalist Professional Initial Logo.png"
+      alt="XDINARYOU STORE"
+    />
+    <div class="about-text">
+      Xdinaryou Store adalah platform online yang hadir untuk kamu yang ingin selalu up-to-date dengan produk-produk hits dan rekomendasi terbaik! Kami fokus mempromosikan, menjual, dan memasarkan berbagai barang unik dan kekinian yang sedang tren di kalangan anak muda dan pecinta gaya hidup modern.
+      Dibangun dengan semangat untuk memberikan pengalaman belanja yang menyenangkan, mudah, dan terpercaya, kami percaya bahwa setiap produk yang kami pilih punya cerita dan manfaatnya masing-masing. Mulai dari fashion, aksesoris lucu, hingga produk fungsional yang akan menemani aktivitas harianmu—semua tersedia dengan harga terjangkau dan kualitas terpercaya.
+    </div>
+  </div>
+
+  <!-- Visi, Misi, Jastip -->
+  <div class="info-container">
+    <div class="column">
+      <h3>✨ Visi Kami</h3>
+      <p>
+        Menjadi toko online favorit yang selalu menghadirkan tren terbaru dengan pelayanan cepat dan ramah.
+      </p>
+    </div>
+
+    <div class="column">
+      <h4>✨ Misi Kami</h4>
+      <p>
+        Membantu kamu menemukan produk yang tepat, tanpa ribet, dengan rekomendasi yang jujur dan selalu up-to-date. Belanja bukan hanya soal membeli barang, tapi juga tentang menemukan gaya dan pilihan yang membuatmu semakin percaya diri.
+      </p>
+    </div>
+
+    <div class="column">
+      <h5>✨ Layanan Jasa Titip (Jastip)</h5>
+      <p>
+        Jika kamu ingin melakukan jasa titip, langsung hubungi kami. Kami selalu menjaga kejujuran dan kepercayaan atas setiap permintaan yang kamu berikan.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>XDINARYOU STORE tanpa scrollbar teks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #0288d1;
+      margin: 100px 15px 40px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto 20px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start; /* supaya tinggi mengikuti isi teks */
+      flex-wrap: wrap;
+    }
+
+    .text-background,
+    .map-container {
+      flex: 1 1 0;
+      min-width: 260px;
+      border-radius: 8px;
+      box-sizing: border-box;
+      padding: 12px 15px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .text-background {
+      background: #e0f0ff;
+      color: #333;
+      text-align: left;
+      /* Hapus fixed height dan overflow */
+      height: auto;
+      overflow: visible;
+      line-height: 1.4;
+      font-size: 13px;
+    }
+
+    .text-background h2 {
+      color: #0288d1;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .text-background h3 {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      color: #0288d1;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .text-background p {
+      margin: 4px 0;
+    }
+
+    .map-container {
+      padding: 0;
+      background: none;
+      box-shadow: none;
+      height: 250px; /* fixed height untuk peta */
+    }
+
+    iframe {
+      border: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .text-background,
+      .map-container {
+        width: 100%;
+        height: auto; /* supaya teks dan peta ikut tinggi otomatis */
+      }
+      .map-container iframe {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text-background">
+      <h2>Alamat Lengkap Kami</h2>
+      <p>Kp. Cibintinu RT01/RW07 Desa Sukasari, Kec. Pameungpeuk,<br>Kab. Bandung, Jawa Barat, Indonesia</p>
+      <p>📞 Telepon: 0813-2129-2383</p>
+      <p>✉️ Email: extraordinaryyou103@gmail.com</p>
+      <p><strong>Jam Operasional:</strong></p>
+      <p>Senin - Jumat: 09.00 - 17.00 WIB</p>
+      <p>Sabtu: 09.00 - 14.00 WIB</p>
+      <p>Minggu: Libur</p>
+    </div>
+
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d217.22820028843822!2d107.59633239105827!3d-7.018635225427492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sid!2sid!4v1754877354355!5m2!1sid!2sid" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</body>
+</html>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimoni Pelanggan Otomatis</title>
+  <style>
+    body {
+      background: #fdfae9;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #164fa3;
+    }
+
+    .produk-hits-bar {
+      background: #b3e5fc;
+      padding: 28px 0 20px 32px;
+      font-size: 2em;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .testimoni-section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .testimoni-section h2 {
+      font-size: 2em;
+      color: #164fa3;
+      margin-bottom: 30px;
+    }
+
+    .slider {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slides-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: fit-content;
+    }
+
+    .testimoni-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 280px;
+      margin: 0 10px;
+      padding: 20px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .testimoni-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #3498db;
+    }
+
+    .testimoni-name {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .testimoni-text {
+      font-style: italic;
+      color: #555;
+      font-size: 15px;
+    }
+
+    @media (max-width: 700px) {
+      .testimoni-card {
+        width: 90vw;
+        margin: 0 5vw;
+      }
+
+      .produk-hits-bar {
+        font-size: 1.3em;
+        padding-left: 12px;
+      }
+
+      .testimoni-section h2 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Produk Hits Bar -->
+  <div class="produk-hits-bar">Testimoni Pelanggan</div>
+
+  <!-- Testimoni Pelanggan Section -->
+  <section class="testimoni-section">
+    
+    <div class="slider">
+      <div class="slides-wrapper" id="slidesWrapper">
+        <div class="testimoni-card">
+          <img class="testimoni-photo" src="img/Giselle.jpeg" />
+          <div class="testimoni-name">GISELLE </div>
+          <div class="testimoni-text">“Pelayanan sangat memuaskan dan cepat. Produk sampai dalam kondisi baik. Saya sangat merekomendasikan!”</div>
+        </div>
+
+        <div class="testimoni-card">
+          <img class="testimoni-photo" src="img/Johnny.jpg" />
+          <div class="testimoni-name">JOHNNY</div>
+          <div class="testimoni-text">“Harga bersaing dan kualitas produk terjaga. Sangat membantu kebutuhan saya sehari-hari.”</div>
+        </div>
+
+        <div class="testimoni-card">
+          <img class="testimoni-photo" src="img/[HD] BLACKPINK(블랙핑크) LISA(리사) 불가리 Bzero1 컬렉션 고화질 화보.jpeg" />
+          <div class="testimoni-name">LISA</div>
+          <div class="testimoni-text">“Saya suka kemudahan dalam proses pemesanan dan customer service yang ramah.”</div>
+        </div>
+
+        <div class="testimoni-card">
+          <img class="testimoni-photo" src="img/Lucas 💋.jpeg" />
+          <div class="testimoni-name">Lucas</div>
+          <div class="testimoni-text">“Kualitas produk bagus dan pengiriman cepat, sangat puas dengan pengalaman belanja saya.”</div>
+        </div>
+
+        <div class="testimoni-card">
+          <img class="testimoni-photo" src="img/쯔위 (TZUYU) (@thinkaboutzu) • Fotos e vídeos do….jpeg" />
+          <div class="testimoni-name">TZUYU</div>
+          <div class="testimoni-text">“Kalau boleh saya rokemendasikan web ini sangat rekomendasi.”</div>
+        </div>
+
+        <div class="testimoni-card">
+          <img class="testimoni-photo" src="img/jaehyun.jpg" />
+          <div class="testimoni-name">JAEHYUN</div>
+          <div class="testimoni-text">“Harga Boleh murah, Tapi kualitas boleh diadu.”</div>
+        </div>
+
+        <div class="testimoni-card">
+          <img class="testimoni-photo" src="img/Kim Mingyu.jpeg" />
+          <div class="testimoni-name">Minggu</div>
+          <div class="testimoni-text">“Makin hari, soal fashion makin up to date soalny sering mantau web xdinaryou.”</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <script>
+    const slidesWrapper = document.getElementById('slidesWrapper');
+    const totalSlides = slidesWrapper.children.length;
+    const cardWidth = 300; // Approximate card width + margin
+    let currentIndex = 0;
+
+    function autoSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      const moveX = -(cardWidth * currentIndex);
+      slidesWrapper.style.transform = `translateX(${moveX}px)`;
+    }
+
+    setInterval(autoSlide, 3000); // Ganti slide setiap 3 detik
+  </script>
+  <body>
+  <div style="height: 10px; background: none;"></div>
+  <!-- Rekomendasi bar -->
+  <body>
+  <div style="height: 10px; background: none;"></div>
+  <meta charset="UTF-8" />
+  <title>Footer Mentok Bawah</title>
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #fdfae9;
+    }
+    footer {
+      background: #b3e5fc;
+      color: #0d47a1;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <footer>
+    <p>&copy; 2023 XDINARYOU.STORE. All rights reserved.</p>
+  </footer>
+</body>
+</html>

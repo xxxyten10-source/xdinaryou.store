@@ -1,0 +1,2262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <title>XDINARYOU.STORE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #b3e5fc;
+      padding: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .nav-link {
+      color: #0d47a1;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+    .nav-link:hover {
+      background: #0288d1;
+      color: white;
+    }
+    .search-box select {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #0288d1;
+      font-size: 14px;
+    }
+
+    /* Content area supaya footer tetap di bawah */
+    main {
+      flex: 1 0 auto; /* Isi halaman yang fleksibel */
+      padding: 24px 18px;
+      box-sizing: border-box;
+      background: #f9f9f9;
+    }
+
+    /* Produk */
+    .product-list-row {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      box-sizing: border-box;
+      padding-bottom: 16px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.08);
+      width: 220px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .product-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product-badge-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 2px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 0.83em;
+      font-weight: bold;
+      border-radius: 3px;
+      padding: 3px 7px;
+      color: #fff;
+    }
+    .badge.star { background: #ff5c32; }
+    .badge.promo { background: #ffd600; color: #d35400; }
+    .product-title {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 6px 10px 2px 10px;
+      color: #222;
+      min-height: 40px;
+      max-height: 40px;
+      overflow: hidden;
+    }
+    .product-extra-row {
+      display: flex;
+      gap: 5px;
+      margin: 4px 10px 0 10px;
+      flex-wrap: wrap;
+      font-size: 0.95em;
+    }
+    .komisi-xtra {
+      border: 2px solid #2541b2;
+      color: #2541b2;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      background: #fff;
+    }
+    .garansi {
+      background: #eee;
+      color: #e9003a;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+    }
+    .product-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: bold;
+      margin: 8px 10px;
+    }
+    .product-price {
+      color: #e9003a;
+      font-size: 1em;
+    }
+    .product-sold {
+      font-size: 1em;
+      color: #888;
+    }
+  </style>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a class="nav-link text-lg font-bold" href="#home" onclick="showSection('home')">XDINARYOU.STORE</a>
+    <div class="nav-links">
+      <button class="nav-link" onclick="showSection('home')">Home</button>
+      <button class="nav-link" onclick="showSection('about us')"><a href="AboutUs.html">About Us</a></button>
+      <button class="nav-link" onclick="showSection('contact')"><a href="kontak.html">Contact</a></button>
+      <button class="nav-link" onclick="showSection('affiliate')"><a href="Affiliate.html">Affiliate</a></button>
+    </select> 
+    </div>
+  </nav>
+  <!-- Home -->
+
+  <section id="home" style="display:block;">
+      <div class="overlay">
+        <div class="flex flex-wrap justify-center gap-2 mb-4">
+  <meta charset="UTF-8">
+  <title>Image Slider Sederhana</title>
+  <style>
+    .slider {
+      position: relative;
+      width: 500px;
+      height: 600px;
+      margin: 20px;
+      overflow: hidden;
+      border: 0px solid #ccc;
+    }
+    .slides img {
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    .slides img.active {
+      display: block;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      font-size: 2em;
+      padding: 0 10px;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+  </style>
+</head>
+<body>
+  <div class="slider" style= "width:200mm; height:100mm;">
+    <button class="prev">&#10094;</button>
+    <div class="slides">
+       <a href="promo-belanja.html">
+        <img src="img/WELCOME.png" class="active" alt="video"></a>
+      <a href="promo-belanja.html">
+        <img src="img/cari.png" alt="Foto 2"></a>
+      <a href="promo-belanja.html">
+        <img src="img/dan.png" alt="Foto 3">
+        </a>
+      <!-- Tambahkan foto lain di sini -->
+    </div>
+    <button class="next">&#10095;</button>
+  </div>
+  <script>
+  const slides = document.querySelectorAll('.slides img');
+  let currentIndex = 0;
+  let intervalId;
+  function showSlide(index) {
+    slides.forEach((img, i) => {
+      img.style.display = i === index ? 'block' : 'none';
+      img.classList.toggle('active', i === index);
+    });
+    currentIndex = index;
+  }
+
+  function nextSlide() {
+    let idx = (currentIndex + 1) % slides.length;
+    showSlide(idx);
+  }
+
+  document.querySelector('.prev').onclick = function() {
+    let idx = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(idx);
+    resetAutoSlide();
+  };
+  document.querySelector('.next').onclick = function() {
+    nextSlide();
+    resetAutoSlide();
+  };
+
+  // Otomatis slide setiap 3 detik
+  function startAutoSlide() {
+    intervalId = setInterval(nextSlide, 3000);
+  }
+  function resetAutoSlide() {
+    clearInterval(intervalId);
+    startAutoSlide();
+  }
+
+  // Inisialisasi
+  showSlide(0);
+  startAutoSlide();
+</script>
+</body>
+</html>
+<div class="slider" style="width:100mm; height:auto;">
+  <!-- Gambar Pertama -->
+  <a href="promo-belanja.html">
+    <img src="img/cari.png" class="active" alt="Foto 1" style="width:100%;  height: 50mm; margin-bottom:1px;">
+  </a>
+  
+  <!-- Gambar Kedua -->
+  <a href="pasar-tradisional.html">
+    <img src="img/dan.png" alt="Foto 2" style="width:100%; height: 50mm;">
+  </a>
+</div>
+  <style>
+    body {
+      background: #fdfae9;
+      margin: 0;
+      padding: 0;
+    }
+    .header-bar {
+      width: 100vw;
+      background: #bce8fc;
+      padding: 28px 0 20px 0;
+      display: flex;
+      align-items: center;
+    }
+    .header-title {
+      color: #164fa3;
+      font-size: 2em;
+      font-weight: bold;
+      margin-left: 32px;
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 1px;
+    }
+    .produk-hits-bar {
+      width: 100vw;
+      background: #b3e5fc;
+      padding: 28px 0 20px 0;
+      display: flex;
+      align-items: center;
+    }
+    .produk-hits-title {
+      color: #164fa3;
+      font-size: 2em;
+      font-weight: bold;
+      margin-left: 32px;
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 700px) {
+      .header-title, .produk-hits-title {
+        font-size: 1.3em;
+        margin-left: 12px;
+      }
+      .header-bar, .produk-hits-bar {
+        padding: 16px 0 12px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div style="height: 340px; background: none;"></div>
+  <!-- Produk Hits bar -->
+  <div class="produk-hits-bar">
+    <div class="produk-hits-title">Produk Hits</div>
+  </div>
+  <style>
+    .produk-row {
+      display: flex;
+      align-items: center;
+      width: 400px;
+      margin: 30px auto;
+      background: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      padding: 20px;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 10px 10px;
+      scroll-behavior: smooth;
+    }
+    .product-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .aff-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .product-name-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.65) 80%, rgba(0,0,0,0));
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.05em;
+      text-align: center;
+      line-height: 40px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      z-index: 2;
+      pointer-events: none;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-links">
+    <div class="product-card">
+      <a href="https://collshp.com/xdinaryou?share_channel_code=1">
+        <img src="img/SeblakInstan.jpg" class="aff-img" alt="Seblak">
+      </a>
+  <div class="product-name-layer">Seblak Instan</div>
+</div>
+<div class="product-card">
+  <a href="detail-sawako.html">
+    <img src="img/sawako.jpg" class="aff-img" alt="Seblak">
+  </a>
+  <div class="product-name-layer">Sawako Outfit</div>
+</div>
+    <div class="product-card">
+      <a href="detail-Pantalon cargo baggy en twill.html">
+        <img src="img/Pantalon cargo baggy en twill.jpg" class="aff-img" alt="Seblak">
+      </a>
+      <div class="product-name-layer">Cargo Baggy</div>
+  </div>
+    <div class="product-card">
+      <a href="detail-outfit inspo _ outfit.html">
+      <img src="img/outfit inspo _ outfit.jpg" class="aff-img" alt="Seblak">
+      </a>
+      <div class="product-name-layer">Inspo Outfit</div>
+    </div>
+    <div class="product-card">
+      <a href="detail-Premium Jersey Hijabs coming soon _ Elevate your….html">
+      <img src="img/Premium Jersey Hijabs coming soon _ Elevate your….jpg" class="aff-img" alt="Seblak">
+      </a>
+      <div class="product-name-layer">Hijab</div>
+    </div>
+    <div class="product-card">
+      <a href="detail-desain kaos keren.html">
+      <img src="img/desain kaos keren.jpg" class="aff-img" alt="Seblak">
+      </a>
+      <div class="product-name-layer">Kaos</div>
+    </div><div class="product-card">
+      <a href="detail-Mnst Workshirt _ Kemeja Pendek _ Cream_ Haruka.html">
+      <img src="img/Mnst Workshirt _ Kemeja Pendek _ Cream_ Haruka.jpg" class="aff-img" alt="Seblak">
+      </a>
+      <div class="product-name-layer">Kemeja Pendek</div>
+    </div><div class="product-card">
+      <a href="detail-kecamata.html">
+      <img src="img/kecamata.jpeg" class="aff-img" alt="Seblak">
+      </a>
+      <div class="product-name-layer">Kacamata</div>
+    </div><div class="product-card">
+      <a href="detail-Premium Jersey Hijabs coming soon _ Elevate your….html">
+      <img src="img/sepatu.jpg" class="aff-img" alt="Seblak">
+      </a>
+      <div class="product-name-layer">Hijab</div>
+    </div>
+    <!-- tambah gambar lain -->
+  </div>
+  <style>
+    body {
+      background: #fdfae9;
+      margin: 0;
+      padding: 0;
+    }
+    .rekomendasi-bar {
+      width: 100vw;
+      background: #54c6f8;
+      padding: 18px 0 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* membuat judul di tengah */
+    }
+    .rekomendasi-title {
+      color: #164fa3;
+      font-size: 2em;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 1px;
+      margin-left: 0; /* pastikan tidak ada margin kiri */
+    }
+    @media (max-width: 700px) {
+      .rekomendasi-title {
+        font-size: 1.3em;
+      }
+      .rekomendasi-bar {
+        padding: 12px 0 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div style="height: 10px; background: none;"></div>
+  <!-- Rekomendasi bar -->
+  <div class="rekomendasi-bar">
+    <div class="rekomendasi-title">Rekomendasi</div>
+  </div>
+  <meta charset="UTF-8">
+  <title>Katalog Produk Marketplace</title>
+  <style>
+    body {
+      background: #f9f9f9;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .product-list-row {
+      display: flex;
+      gap: 18px;
+      padding: 24px 18px;
+      overflow-x: auto;
+      box-sizing: border-box;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.08);
+      width: 220px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .product-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product-badge-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 2px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.83em;
+      font-weight: bold;
+      border-radius: 3px;
+      padding: 3px 7px;
+      margin-right: 2px;
+      color: #fff;
+      background: #ff5c32;
+    }
+    .badge.star { background: #ff5c32; }
+    .badge.mall { background: #e9003a; }
+    .badge.ori { background: #2541b2; }
+    .badge.xtra { background: #ffd600; color: #d35400; }
+    .badge.local { background: #d81b60; }
+    .badge.promo { background: #ffd600; color: #d35400; }
+    .badge.lokal { background: #d81b60; }
+    .badge.heart { background: #e53935; }
+    .product-title {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 6px 10px 2px 10px;
+      color: #222;
+      min-height: 40px;
+      max-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      line-height: 1.2em;
+      letter-spacing: 0.01em;
+    }
+    .product-extra-row {
+      display: flex;
+      gap: 5px;
+      margin: 4px 10px 0 10px;
+      align-items: center;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.95em;
+
+    }
+    .komisi-xtra {
+      background: #fff;
+      border: 2px solid #2541b2;
+      color: #2541b2;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .garansi {
+      background: #eee;
+      color: #e9003a;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .product-price-row {
+      display: flex;
+      justify-content: space-between; /* jarak kiri-kanan otomatis */
+      align-items: center; /* ini penting untuk vertikal sejajar */
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .product-price {
+      color: #e9003a;
+      font-size: 1em;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+    .product-sold {
+      font-size: 1em;
+      color: #888;
+      margin-left: auto;
+    }
+    .product-action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ff5722;
+      color: #fff;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 9px 0;
+      margin: 14px 0 0 0;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    .product-action:hover {
+      background: #e64a19;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-list-row">
+    <!-- Produk 1 -->
+<a href="https://s.shopee.co.id/8UyCQLBWuu" class="product-card">
+  <div class="product-img-container">
+    <img src="img/vest.jpg"class="product-img" alt="Vest Distro Premium">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Vest Distro Premium</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 58.000</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 2 -->
+     <a href="https://s.shopee.co.id/2g0PU2gCxx" class="product-card">
+  <div class="product-img-container">
+    <img src="img/flat.jpg" class="product-img" alt="Heels mutiara tali belakang 3cm">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Heels mutiara tali belakang 3cm</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 58.000</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 3 -->
+     <a href="https://s.shopee.co.id/40Vn4BYq5Z" class="product-card">
+  <div class="product-img-container">
+    <img src="img/apatuh.jpg" class="product-img" alt="DO THE FLOW KEMEJA WORKJACKET BOXY OVERSIZE">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">DO THE FLOW KEMEJA WORKJACKET BOXY OVERSIZE</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 145.500</span>
+      <span class="product-sold">10RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 4 -->
+     <a href=" https://s.shopee.co.id/7V5fEs1iOo" class="product-card">
+  <div class="product-img-container">
+    <img src="img/mouse.jpg" class="product-img" alt="NETPAC Mouse Wireless Gaming M1 Bluetooth 2.4G Type-C Usb 3 Model LED Baterai 1600DPI RGB Ori ">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">NETPAC Mouse Wireless Gaming M1 Bluetooth 2.4G Type-C Usb 3 Model LED Baterai 1600DPI RGB Ori </div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 62.500</span>
+      <span class="product-sold">11RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 5 -->
+     <a href=" https://s.shopee.co.id/20kiggcpne" class="product-card">
+        <div class="product-img-container">
+          <img src="img/seragam.jpg" class="product-img" alt="Kemeja Putih Lengan Puff Atasan Korean Wanita ">
+        </div>
+        <div class="product-info">
+          <div class="product-badge-row">
+            <span class="badge promo">PROMO XTRA</span>
+            <span class="badge star">Star+</span>
+          </div>
+          <div class="product-title">Kemeja Putih Lengan Puff Atasan Korean Wanita </div>
+          <div class="product-extra-row">
+            <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+          </div>
+          <div class="product-price-row">
+            <div class="product-price-row">
+              <span class="product-price">Rp 10.000</span>
+              <span class="product-sold">11RB Terjual</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    <!-- Tambahkan produk lain sesuai kebutuhan -->
+  </div>
+</body>
+</html>
+<meta charset="UTF-8">
+  <title>Katalog Produk Marketplace</title>
+  <style>
+    body {
+      background: #f9f9f9;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .product-list-row {
+      display: flex;
+      gap: 18px;
+      padding: 24px 18px;
+      overflow-x: auto;
+      box-sizing: border-box;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.08);
+      width: 220px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .product-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product-badge-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 2px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.83em;
+      font-weight: bold;
+      border-radius: 3px;
+      padding: 3px 7px;
+      margin-right: 2px;
+      color: #fff;
+      background: #ff5c32;
+    }
+    .badge.star { background: #ff5c32; }
+    .badge.mall { background: #e9003a; }
+    .badge.ori { background: #2541b2; }
+    .badge.xtra { background: #ffd600; color: #d35400; }
+    .badge.local { background: #d81b60; }
+    .badge.promo { background: #ffd600; color: #d35400; }
+    .badge.lokal { background: #d81b60; }
+    .badge.heart { background: #e53935; }
+    .product-title {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 6px 10px 2px 10px;
+      color: #222;
+      min-height: 40px;
+      max-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      line-height: 1.2em;
+      letter-spacing: 0.01em;
+    }
+    .product-extra-row {
+      display: flex;
+      gap: 5px;
+      margin: 4px 10px 0 10px;
+      align-items: center;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.95em;
+
+    }
+    .komisi-xtra {
+      background: #fff;
+      border: 2px solid #2541b2;
+      color: #2541b2;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .garansi {
+      background: #eee;
+      color: #e9003a;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .product-price-row {
+      display: flex;
+      justify-content: space-between; /* jarak kiri-kanan otomatis */
+      align-items: center; /* ini penting untuk vertikal sejajar */
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .product-price {
+      color: #e9003a;
+      font-size: 1em;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+    .product-sold {
+      font-size: 1em;
+      color: #888;
+      margin-left: auto;
+    }
+    .product-action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ff5722;
+      color: #fff;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 9px 0;
+      margin: 14px 0 0 0;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    .product-action:hover {
+      background: #e64a19;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-list-row">
+    <!-- Produk 1 -->
+<a href="belanja.html" class="product-card">
+  <div class="product-img-container">
+    <img src="img/basreng.jpg"class="product-img" alt="Basreng">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Basreng Renyah</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 2.500</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 2 -->
+     <a href="produk-Oversize Homens Camiseta Masculina estampada T-shirt Camisa Style.html?id=kaos" class="product-card">
+  <div class="product-img-container">
+    <img src="img/Oversize Homens Camiseta Masculina estampada T-shirt Camisa Style.jpg" class="product-img" alt="Koas Oversize">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Koas Distro Oversize</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 58.000</span>
+      <span class="product-sold">2RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 3 -->
+     <a href="produk-best -Kerudung Hijab Jilbab Voal Polos by Upitpita Segiempat Polos.html?id=hijab" class="product-card">
+  <div class="product-img-container">
+    <img src="img/best -Kerudung Hijab Jilbab Voal Polos by Upitpita Segiempat Polos.jpg" class="product-img" alt="Hijab Polos Segiempat">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Hijab Polos Segiempat</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 10.500</span>
+      <span class="product-sold">10RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 4 -->
+     <a href="produk-Kaos Band Stand Here Alone NUSANTARA SHA Tshirt _ Kaos Band Punk.html?id=kaos" class="product-card">
+  <div class="product-img-container">
+    <img src="img/Kaos Band Stand Here Alone NUSANTARA SHA Tshirt _ Kaos Band Punk.jpg" class="product-img" alt="Koas Band Punk">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Kaos Band Punk</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 52.500</span>
+      <span class="product-sold">11RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 5 -->
+     <a href="produk-Bella Square.html?id=hijab" class="product-card">
+        <div class="product-img-container">
+          <img src="img/FiestaReadyMeak.jpg" class="product-img" alt="Fiesta Ready Meal">
+        </div>
+        <div class="product-info">
+          <div class="product-badge-row">
+            <span class="badge promo">PROMO XTRA</span>
+            <span class="badge star">Star+</span>
+          </div>
+          <div class="product-title">Fiesta Ready Meal</div>
+          <div class="product-extra-row">
+            <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+          </div>
+          <div class="product-price-row">
+            <div class="product-price-row">
+              <span class="product-price">Rp 19.000</span>
+              <span class="product-sold">11RB Terjual</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    <!-- Tambahkan produk lain sesuai kebutuhan -->
+  </div>
+</body>
+</html>
+<meta charset="UTF-8">
+  <title>Katalog Produk Marketplace</title>
+  <style>
+    body {
+      background: #f9f9f9;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .product-list-row {
+      display: flex;
+      gap: 18px;
+      padding: 24px 18px;
+      overflow-x: auto;
+      box-sizing: border-box;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.08);
+      width: 220px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .product-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product-badge-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 2px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.83em;
+      font-weight: bold;
+      border-radius: 3px;
+      padding: 3px 7px;
+      margin-right: 2px;
+      color: #fff;
+      background: #ff5c32;
+    }
+    .badge.star { background: #ff5c32; }
+    .badge.mall { background: #e9003a; }
+    .badge.ori { background: #2541b2; }
+    .badge.xtra { background: #ffd600; color: #d35400; }
+    .badge.local { background: #d81b60; }
+    .badge.promo { background: #ffd600; color: #d35400; }
+    .badge.lokal { background: #d81b60; }
+    .badge.heart { background: #e53935; }
+    .product-title {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 6px 10px 2px 10px;
+      color: #222;
+      min-height: 40px;
+      max-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      line-height: 1.2em;
+      letter-spacing: 0.01em;
+    }
+    .product-extra-row {
+      display: flex;
+      gap: 5px;
+      margin: 4px 10px 0 10px;
+      align-items: center;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.95em;
+
+    }
+    .komisi-xtra {
+      background: #fff;
+      border: 2px solid #2541b2;
+      color: #2541b2;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .garansi {
+      background: #eee;
+      color: #e9003a;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .product-price-row {
+      display: flex;
+      justify-content: space-between; /* jarak kiri-kanan otomatis */
+      align-items: center; /* ini penting untuk vertikal sejajar */
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .product-price {
+      color: #e9003a;
+      font-size: 1em;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+    .product-sold {
+      font-size: 1em;
+      color: #888;
+      margin-left: auto;
+    }
+    .product-action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ff5722;
+      color: #fff;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 9px 0;
+      margin: 14px 0 0 0;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    .product-action:hover {
+      background: #e64a19;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-list-row">
+    <!-- Produk 1 -->
+<a href="produk-aespaNingNing.html?id=kaos" class="product-card">
+  <div class="product-img-container">
+    <img src="img/aespaNingNIng.jpg"class="product-img" alt="Kaos Aespa NingNing">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Kaos Aespa NingNing</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 58.000</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 2 -->
+     <a href="produk-Basreng Gurih.html?id=Basreng" class="product-card">
+  <div class="product-img-container">
+    <img src="img/BASRENG GURIH.jpg" class="product-img" alt="Basreng Gurih">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Basreng Gurih</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 5.000</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 3 -->
+     <a href="produk-Bota Coturno Preto Blossom 90s.html?id=Sepatu" class="product-card">
+  <div class="product-img-container">
+    <img src="img/Bota Coturno Preto Blossom 90s.jpg" class="product-img" alt="Sepatu Bota Cortuno">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Sepatu Bota Cortuno</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 150.000</span>
+      <span class="product-sold">10RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 4 -->
+     <a href="produk-CELANA KULOT CARGO 4 CIRNGKLE HIGHWAIST KOREAN STYLE.html?id=Celana" class="product-card">
+  <div class="product-img-container">
+    <img src="img/CELANA KULOT CARGO 4 CIRNGKLE HIGHWAIST KOREAN STYLE.jpg" class="product-img" alt="CELANA KULOT CARGO 4 CIRNGKLE HIGHWAIST KOREAN STYLE">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">CELANA KULOT CARGO 4 CIRNGKLE HIGHWAIST KOREAN STYLE</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 82.000</span>
+      <span class="product-sold">11RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 5 -->
+     <a href="produk-celanacream.html?id=celana" class="product-card">
+        <div class="product-img-container">
+          <img src="img/celanacream.jpg" class="product-img" alt="Celana Highwaist">
+        </div>
+        <div class="product-info">
+          <div class="product-badge-row">
+            <span class="badge promo">PROMO XTRA</span>
+            <span class="badge star">Star+</span>
+          </div>
+          <div class="product-title">Celana Highwaist</div>
+          <div class="product-extra-row">
+            <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+          </div>
+          <div class="product-price-row">
+            <div class="product-price-row">
+              <span class="product-price">Rp 100.000</span>
+              <span class="product-sold">11RB Terjual</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    <!-- Tambahkan produk lain sesuai kebutuhan -->
+  </div>
+</body>
+</html>
+<meta charset="UTF-8">
+  <title>Katalog Produk Marketplace</title>
+  <style>
+    body {
+      background: #f9f9f9;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .product-list-row {
+      display: flex;
+      gap: 18px;
+      padding: 24px 18px;
+      overflow-x: auto;
+      box-sizing: border-box;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.08);
+      width: 220px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .product-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product-badge-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 2px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.83em;
+      font-weight: bold;
+      border-radius: 3px;
+      padding: 3px 7px;
+      margin-right: 2px;
+      color: #fff;
+      background: #ff5c32;
+    }
+    .badge.star { background: #ff5c32; }
+    .badge.mall { background: #e9003a; }
+    .badge.ori { background: #2541b2; }
+    .badge.xtra { background: #ffd600; color: #d35400; }
+    .badge.local { background: #d81b60; }
+    .badge.promo { background: #ffd600; color: #d35400; }
+    .badge.lokal { background: #d81b60; }
+    .badge.heart { background: #e53935; }
+    .product-title {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 6px 10px 2px 10px;
+      color: #222;
+      min-height: 40px;
+      max-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      line-height: 1.2em;
+      letter-spacing: 0.01em;
+    }
+    .product-extra-row {
+      display: flex;
+      gap: 5px;
+      margin: 4px 10px 0 10px;
+      align-items: center;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.95em;
+
+    }
+    .komisi-xtra {
+      background: #fff;
+      border: 2px solid #2541b2;
+      color: #2541b2;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .garansi {
+      background: #eee;
+      color: #e9003a;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .product-price-row {
+      display: flex;
+      justify-content: space-between; /* jarak kiri-kanan otomatis */
+      align-items: center; /* ini penting untuk vertikal sejajar */
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .product-price {
+      color: #e9003a;
+      font-size: 1em;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+    .product-sold {
+      font-size: 1em;
+      color: #888;
+      margin-left: auto;
+    }
+    .product-action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ff5722;
+      color: #fff;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 9px 0;
+      margin: 14px 0 0 0;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    .product-action:hover {
+      background: #e64a19;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-list-row">
+    <!-- Produk 1 -->
+<a href="produk-cilok.html?id=cilok" class="product-card">
+  <div class="product-img-container">
+    <img src="img/cilok.jpg"class="product-img" alt="Cilok Khas Bandung">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Cilok Khas Bandung</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 5.000</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 2 -->
+     <a href="produk-CONVERSE Chuck 70 Black High Top Shoes - BLACK_EGRET _ Tillys.html?id=Sepatu" class="product-card">
+  <div class="product-img-container">
+    <img src="img/CONVERSE Chuck 70 Black High Top Shoes - BLACK_EGRET _ Tillys.jpg" class="product-img" alt="Sepatu Converse">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Sepatu Converse</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 158.000</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 3 -->
+     <a href="produk-FiestaReadyMeal.html?id=makanan" class="product-card">
+  <div class="product-img-container">
+    <img src="img/FiestaReadyMeak.jpg" class="product-img" alt="Fiesta Ready Meal">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Fiesta Ready Meal</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 19.500</span>
+      <span class="product-sold">10RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 4 -->
+     <a href="produk-google.html?id=kalung" class="product-card">
+  <div class="product-img-container">
+    <img src="img/Google.jpg" class="product-img" alt="Butterfly Necklaceg">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Butterfly Necklace</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 2.500</span>
+      <span class="product-sold">11RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 5 -->
+     <a href="produk-H&M _ Fashion für Frauen, Männer & Kinder _ H&M DE.html?id=kaos" class="product-card">
+        <div class="product-img-container">
+          <img src="img/H&M _ Fashion für Frauen, Männer & Kinder _ H&M DE.jpg" class="product-img" alt="H&M Trend Fashion">
+        </div>
+        <div class="product-info">
+          <div class="product-badge-row">
+            <span class="badge promo">PROMO XTRA</span>
+            <span class="badge star">Star+</span>
+          </div>
+          <div class="product-title">H&M Trend Fashion</div>
+          <div class="product-extra-row">
+            <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+          </div>
+          <div class="product-price-row">
+            <div class="product-price-row">
+              <span class="product-price">Rp 199.000</span>
+              <span class="product-sold">11RB Terjual</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    <!-- Tambahkan produk lain sesuai kebutuhan -->
+  </div>
+</body>
+</html>
+<meta charset="UTF-8">
+  <title>Katalog Produk Marketplace</title>
+  <style>
+    body {
+      background: #f9f9f9;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .product-list-row {
+      display: flex;
+      gap: 18px;
+      padding: 24px 18px;
+      overflow-x: auto;
+      box-sizing: border-box;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.08);
+      width: 220px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .product-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product-badge-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 2px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.83em;
+      font-weight: bold;
+      border-radius: 3px;
+      padding: 3px 7px;
+      margin-right: 2px;
+      color: #fff;
+      background: #ff5c32;
+    }
+    .badge.star { background: #ff5c32; }
+    .badge.mall { background: #e9003a; }
+    .badge.ori { background: #2541b2; }
+    .badge.xtra { background: #ffd600; color: #d35400; }
+    .badge.local { background: #d81b60; }
+    .badge.promo { background: #ffd600; color: #d35400; }
+    .badge.lokal { background: #d81b60; }
+    .badge.heart { background: #e53935; }
+    .product-title {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 6px 10px 2px 10px;
+      color: #222;
+      min-height: 40px;
+      max-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      line-height: 1.2em;
+      letter-spacing: 0.01em;
+    }
+    .product-extra-row {
+      display: flex;
+      gap: 5px;
+      margin: 4px 10px 0 10px;
+      align-items: center;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.95em;
+
+    }
+    .komisi-xtra {
+      background: #fff;
+      border: 2px solid #2541b2;
+      color: #2541b2;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .garansi {
+      background: #eee;
+      color: #e9003a;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .product-price-row {
+      display: flex;
+      justify-content: space-between; /* jarak kiri-kanan otomatis */
+      align-items: center; /* ini penting untuk vertikal sejajar */
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .product-price {
+      color: #e9003a;
+      font-size: 1em;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+    .product-sold {
+      font-size: 1em;
+      color: #888;
+      margin-left: auto;
+    }
+    .product-action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ff5722;
+      color: #fff;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 9px 0;
+      margin: 14px 0 0 0;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    .product-action:hover {
+      background: #e64a19;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-list-row">
+    <!-- Produk 1 -->
+<a href="produk-Pashmina Kaos Spandex Rayon Premium.html?id=kaos" class="product-card">
+  <div class="product-img-container">
+    <img src="img/Pashmina Kaos Spandex Rayon Premium.jpg"class="product-img" alt="Pashmina Kaos Spandex Rayon Premium">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Pashmina Kaos Spandex Rayon Premium</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 23.999</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 2 -->
+     <a href="produk-KEXA - Kalung Titanium Wanita Model Clover.html?id=kalung" class="product-card">
+  <div class="product-img-container">
+    <img src="img/KEXA - Kalung Titanium Wanita Model Clover.jpg" class="product-img" alt="KEXA - Kalung Titanium Wanita Model Clover">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">KEXA - Kalung Titanium Wanita Model Clover</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 8.000</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 3 -->
+     <a href="produk-Locallady! Hari ini akhirnya kamu bisa milki….html?id=kerudung" class="product-card">
+  <div class="product-img-container">
+    <img src="img/Locallady! Hari ini akhirnya kamu bisa milki….jpg" class="product-img" alt="Hijab Segiempat Motif">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Hijab Segiempat Motif</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 9.999</span>
+      <span class="product-sold">10RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 4 -->
+     <a href="produk-MakananInstan.html?id=makanan" class="product-card">
+  <div class="product-img-container">
+    <img src="img/MakananInstan.jpg" class="product-img" alt="Makanan Instan">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Makanan Instan</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 20.500</span>
+      <span class="product-sold">11RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 5 -->
+     <a href="produk-Mnst Workshirt _ Kemeja Pendek _ Cream_ Haruka.html?id=kemeja" class="product-card">
+        <div class="product-img-container">
+          <img src="img/Mnst Workshirt _ Kemeja Pendek _ Cream_ Haruka.jpg" class="product-img" alt="Kemeja Pendek">
+        </div>
+        <div class="product-info">
+          <div class="product-badge-row">
+            <span class="badge promo">PROMO XTRA</span>
+            <span class="badge star">Star+</span>
+          </div>
+          <div class="product-title">Kemeja Pendek</div>
+          <div class="product-extra-row">
+            <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+          </div>
+          <div class="product-price-row">
+            <div class="product-price-row">
+              <span class="product-price">Rp 150.000</span>
+              <span class="product-sold">11RB Terjual</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    <!-- Tambahkan produk lain sesuai kebutuhan -->
+  </div>
+</body>
+</html>
+<meta charset="UTF-8">
+  <title>Katalog Produk Marketplace</title>
+  <style>
+    body {
+      background: #f9f9f9;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .product-list-row {
+      display: flex;
+      gap: 18px;
+      padding: 24px 18px;
+      overflow-x: auto;
+      box-sizing: border-box;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.08);
+      width: 220px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .product-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product-badge-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 2px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.83em;
+      font-weight: bold;
+      border-radius: 3px;
+      padding: 3px 7px;
+      margin-right: 2px;
+      color: #fff;
+      background: #ff5c32;
+    }
+    .badge.star { background: #ff5c32; }
+    .badge.mall { background: #e9003a; }
+    .badge.ori { background: #2541b2; }
+    .badge.xtra { background: #ffd600; color: #d35400; }
+    .badge.local { background: #d81b60; }
+    .badge.promo { background: #ffd600; color: #d35400; }
+    .badge.lokal { background: #d81b60; }
+    .badge.heart { background: #e53935; }
+    .product-title {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 6px 10px 2px 10px;
+      color: #222;
+      min-height: 40px;
+      max-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      line-height: 1.2em;
+      letter-spacing: 0.01em;
+    }
+    .product-extra-row {
+      display: flex;
+      gap: 5px;
+      margin: 4px 10px 0 10px;
+      align-items: center;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.95em;
+
+    }
+    .komisi-xtra {
+      background: #fff;
+      border: 2px solid #2541b2;
+      color: #2541b2;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .garansi {
+      background: #eee;
+      color: #e9003a;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .product-price-row {
+      display: flex;
+      justify-content: space-between; /* jarak kiri-kanan otomatis */
+      align-items: center; /* ini penting untuk vertikal sejajar */
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .product-price {
+      color: #e9003a;
+      font-size: 1em;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+    .product-sold {
+      font-size: 1em;
+      color: #888;
+      margin-left: auto;
+    }
+    .product-action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ff5722;
+      color: #fff;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 9px 0;
+      margin: 14px 0 0 0;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    .product-action:hover {
+      background: #e64a19;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-list-row">
+    <!-- Produk 1 -->
+<a href="produk-Poto produk makanan-food Potografhy.html?id=basreng" class="product-card">
+  <div class="product-img-container">
+    <img src="img/Poto produk makanan-food Potografhy.jpg"class="product-img" alt="Basreng">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Basreng Khas Bandung</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 2.500</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 2 -->
+     <a href="produk-Retro Wash Distressed Baseball Cap Soft Top Trucker Hat Adjustable Unisex Casual.html?id=topi" class="product-card">
+  <div class="product-img-container">
+    <img src="img/Retro Wash Distressed Baseball Cap Soft Top Trucker Hat Adjustable Unisex Casual.jpg" class="product-img" alt="Retro Hat Adjustable Unisex Casual">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Retro Hat Adjustable Unisex Casual</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 8.000</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 3 -->
+     <a href="produk-tasshoulder.html?id=tas" class="product-card">
+  <div class="product-img-container">
+    <img src="img/tasshoulder.jpg" class="product-img" alt="Tas Shoulder Wanita">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Tas Shoulder Wanita</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 45.500</span>
+      <span class="product-sold">10RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 4 -->
+     <a href="produk-Vêtements homme & femme, shoppez la mode en ligne.html?id=Celana" class="product-card">
+  <div class="product-img-container">
+    <img src="img/Vêtements homme & femme, shoppez la mode en ligne.jpg" class="product-img" alt="Celana Highwaist">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Celana Highwaist</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 55.000</span>
+      <span class="product-sold">11RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 5 -->
+     <a href="produk-CELANAPENDEK.html?id=hijab" class="product-card">
+        <div class="product-img-container">
+          <img src="img/CELANAPENDEK.jpg" class="product-img" alt="CELANA PENDEK Pria & Wanita">
+        </div>
+        <div class="product-info">
+          <div class="product-badge-row">
+            <span class="badge promo">PROMO XTRA</span>
+            <span class="badge star">Star+</span>
+          </div>
+          <div class="product-title">CELANA PENDEK Pria & Wanita</div>
+          <div class="product-extra-row">
+            <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+          </div>
+          <div class="product-price-row">
+            <div class="product-price-row">
+              <span class="product-price">Rp 10.000</span>
+              <span class="product-sold">11RB Terjual</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    <!-- Tambahkan produk lain sesuai kebutuhan -->
+  </div>
+</body>
+</html>
+<meta charset="UTF-8">
+  <title>Katalog Produk Marketplace</title>
+  <style>
+    body {
+      background: #f9f9f9;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .product-list-row {
+      display: flex;
+      gap: 18px;
+      padding: 24px 18px;
+      overflow-x: auto;
+      box-sizing: border-box;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.08);
+      width: 220px;
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .product-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product-badge-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 2px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.83em;
+      font-weight: bold;
+      border-radius: 3px;
+      padding: 3px 7px;
+      margin-right: 2px;
+      color: #fff;
+      background: #ff5c32;
+    }
+    .badge.star { background: #ff5c32; }
+    .badge.mall { background: #e9003a; }
+    .badge.ori { background: #2541b2; }
+    .badge.xtra { background: #ffd600; color: #d35400; }
+    .badge.local { background: #d81b60; }
+    .badge.promo { background: #ffd600; color: #d35400; }
+    .badge.lokal { background: #d81b60; }
+    .badge.heart { background: #e53935; }
+    .product-title {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 6px 10px 2px 10px;
+      color: #222;
+      min-height: 40px;
+      max-height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      line-height: 1.2em;
+      letter-spacing: 0.01em;
+    }
+    .product-extra-row {
+      display: flex;
+      gap: 5px;
+      margin: 4px 10px 0 10px;
+      align-items: center;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.95em;
+
+    }
+    .komisi-xtra {
+      background: #fff;
+      border: 2px solid #2541b2;
+      color: #2541b2;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .garansi {
+      background: #eee;
+      color: #e9003a;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 0.91em;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .product-price-row {
+      display: flex;
+      justify-content: space-between; /* jarak kiri-kanan otomatis */
+      align-items: center; /* ini penting untuk vertikal sejajar */
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .product-price {
+      color: #e9003a;
+      font-size: 1em;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+    .product-sold {
+      font-size: 1em;
+      color: #888;
+      margin-left: 30px;
+    }
+    .product-action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ff5722;
+      color: #fff;
+      font-size: 1em;
+      font-weight: bold;
+      padding: 9px 0;
+      margin: 14px 0 0 0;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    .product-action:hover {
+      background: #e64a19;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-list-row">
+    <!-- Produk 1 -->
+<a href="produk-kaosMerah.html?id=kaos" class="product-card">
+  <div class="product-img-container">
+    <img src="img/kaosMerah.jpg"class="product-img" alt="Kaos Distro Premium">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Kaos distro premium kaos pria&wanita</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 58.000</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 2 -->
+     <a href="produk-Bandana.html?id=Bandana" class="product-card">
+  <div class="product-img-container">
+    <img src="img/Bandana.jpg" class="product-img" alt="Bandana Retro Wanita&Pria">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Bandana Retro Wanita&Pria</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 58.000</span>
+      <span class="product-sold">1RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 3 -->
+     <a href="produk-SeblakInstan.html?id=Seblak" class="product-card">
+  <div class="product-img-container">
+    <img src="img/SeblakInstan.jpg" class="product-img" alt="Seblak Instan">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Seblak Instan</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 4.500</span>
+      <span class="product-sold">10RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 4 -->
+     <a href="produk-Basreng Bandung Stik 100 Gram.html?id=Basreng" class="product-card">
+  <div class="product-img-container">
+    <img src="img/Basreng Bandung Stik 100 Gram.jpg" class="product-img" alt="Basreng Bandung">
+  </div>
+  <div class="product-info">
+    <div class="product-badge-row">
+      <span class="badge promo">PROMO XTRA</span>
+      <span class="badge star">Star+</span>
+    </div>
+    <div class="product-title">Basreng Bandung 100gr</div>
+    <div class="product-extra-row">
+      <span class="komisi-xtra">KOMISI XTRA</span>
+      <span class="garansi">TerHits</span>
+    </div>
+    <div class="product-price-row">
+      <span class="product-price">Rp 2.500</span>
+      <span class="product-sold">11RB Terjual</span>
+    </div>
+  </div>
+</a>
+    <!-- Produk 5 -->
+     <a href="produk-Bella Square.html?id=hijab" class="product-card">
+        <div class="product-img-container">
+          <img src="img/Bella Square.jpg" class="product-img" alt="Hijab Bella Square">
+        </div>
+        <div class="product-info">
+          <div class="product-badge-row">
+            <span class="badge promo">PROMO XTRA</span>
+            <span class="badge star">Star+</span>
+          </div>
+          <div class="product-title">Hijab Bella Square</div>
+          <div class="product-extra-row">
+            <span class="komisi-xtra">KOMISI XTRA</span>
+            <span class="garansi">TerHits</span>
+          </div>
+          <div class="product-price-row">
+            <div class="product-price-row">
+              <span class="product-price">Rp 10.000</span>
+              <span class="product-sold">11RB Terjual</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    <!-- Tambahkan produk lain sesuai kebutuhan -->
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contoh Footer Tidak Mengambang</title>
+<style>
+  /* Main content agar mengisi ruang dan footer mentok bawah */
+    main {
+      flex: 1 0 fixed; /* Mengisi sisa ruang, mendorong footer ke bawah */
+      padding: 24px 18px;
+    }
+    /* Footer agar full width dan selalu di bawah */
+    footer {
+      background: #b3e5fc;
+      color: #0d47a1;
+      text-align: center;
+      padding: 0px 0;
+      width: 100%; /* Full width */
+    }
+</style>
+</head>
+<body>
+<!-- Footer -->
+<footer>
+  &copy; 2023 XDINARYOU.STORE. All rights reserved.
+</footer>
+
+</body>
+</html>
